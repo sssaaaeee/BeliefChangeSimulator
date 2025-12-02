@@ -1,8 +1,8 @@
 <script setup>
 import { useRouter } from 'vue-router'
 const router = useRouter()
-function start() {
-  router.push('/about')
+function simulation() {
+  router.push('/simulation')
 }
 </script>
 
@@ -10,7 +10,7 @@ function start() {
   <section class="hero">
     <h1 class="hero-title">Welcome to Our App</h1>
     <p class="hero-subtitle">This is Belief Change Simulator</p>
-    <button class="hero-button" @click="start">Get Started</button>
+    <button class="hero-button" @click="simulation">Get Started</button>
   </section>
 </template>
 
