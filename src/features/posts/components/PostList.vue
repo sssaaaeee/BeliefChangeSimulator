@@ -36,6 +36,24 @@ const posts = [{
     like: 150,
     comment: 35,
     share: 15
+  },
+  {
+    userName: 'Fifth User',
+    userId: '@fifth_user',
+    userImg: 'src/assets/user_icon.png',
+    content: 'Final example of post content.',
+    like: 95,
+    comment: 22,
+    share: 8
+  },
+  {
+    userName: 'Sixth User',
+    userId: '@sixth_user',
+    userImg: 'src/assets/user_icon.png',
+    content: 'Last sample post content for testing.',
+    like: 110,
+    comment: 28,
+    share: 12
   }];
 </script>
 
