@@ -54,8 +54,8 @@ const props = defineProps({
   margin-bottom: 8px;
 }
 .user-img {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   margin-right: 12px;
 }

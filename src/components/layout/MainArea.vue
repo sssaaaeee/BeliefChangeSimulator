@@ -14,5 +14,6 @@ console.log('MainArea loaded')
   padding: 16px;
   box-sizing: border-box;
   overflow: hidden;
+  background-color: #f9fafb;
 }
 </style>

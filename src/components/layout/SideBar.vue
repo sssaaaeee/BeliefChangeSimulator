@@ -29,5 +29,13 @@ function gotoHome() {
 </template>
 
 <style scoped>
-
+/* headerは固定 */
+.header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  padding: 8px;
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 10;
+}
 </style>
