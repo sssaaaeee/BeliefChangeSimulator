@@ -7,28 +7,35 @@ console.log('AppShell loaded')
 
 <template>
   <div class="app-shell">
-    <!-- 左側のサイドバー -->
-    <SideBar class="sidebar" />
+    <aside class="sidebar">
+      <SideBar />
+    </aside>
 
-    <!-- 右側のメインエリア -->
-    <MainArea class="main-area">
-      <slot></slot>
-    </MainArea>
+    <main class="main-area">
+      <MainArea>
+        <slot></slot>
+      </MainArea>
+    </main>
   </div>
 </template>
 
 <style scoped>
 .app-shell {
   display: flex;
-  height: 100vh;
+  height: 100vh; /* ここ重要：Sidebar の高さ基準になる */
 }
 
+/* ← ここを aside で囲っておくと、スクロールしやすい */
 .sidebar {
-  width: 30vw;
+  width: 25vw;
+  height: 100%;
+  overflow-y: auto; /* ⭐︎ Sidebar だけスクロール */
   border-right: 1px solid #e5e7eb;
 }
 
 .main-area {
   flex: 1;
+  height: 100%;
+  overflow: hidden; /* ⭐︎ メイン領域のスクロールは切る */
 }
 </style>
