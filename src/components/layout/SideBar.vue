@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div></div>
+  <div>sidebar area</div>
 </template>
 
 <style scoped>
