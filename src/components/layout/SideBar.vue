@@ -14,7 +14,9 @@ function gotoHome() {
     <div class="header">
       <button @click="gotoHome">home</button>
     </div>
-    <div>sidebar area</div>
+    <div class="post-area">
+      post list here
+    </div>
   </div>
 </template>
 
