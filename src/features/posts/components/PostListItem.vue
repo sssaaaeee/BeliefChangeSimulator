@@ -39,5 +39,47 @@ const post = {
 </template>
 
 <style scoped>
-
+.post-item {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+.user-info {
+  display: flex;
+  align-items: left;
+  margin-bottom: 8px;
+}
+.user-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+.user-text {
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+}
+.user-name {
+  font-weight: bold;
+  font-size: 16px;
+}
+.user-id {
+  color: gray;
+  font-size: 14px;
+}
+.post-content {
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+.post-actions {
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 8px;
+}
+.action {
+  font-size: 14px;
+  color: #555;
+}
 </style>
