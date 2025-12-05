@@ -32,7 +32,7 @@ const degreeValue = computed({
   set: v => (degree.value = v),
 })
 // シナリオ11種類（ラベルは条件によって差し替え）
-const scenarios = [
+const jpScenarios = [
   { id: 1, label: '地球温暖化は科学者によるでっちあげで、実際は地球は温暖化していない' },
   { id: 2, label: 'ワクチンの有害な副作用は故意に公には隠されている' },
   { id: 3, label: '世界の出来事やルールを裏でコントロールしている一つの団体がある' },
@@ -40,11 +40,27 @@ const scenarios = [
   { id: 5, label: '日本で起きたこれまでの大きな地震は人工地震である' },
   { id: 6, label: 'ヒト型爬虫類が、世界各国の指導者となり人類を支配している' },
   { id: 7, label: '新型コロナウイルスは実際には存在しない' },
-  { id: 8, label: '9.11米国同時多発テロ事件には、米国政府が関与している' },
-  { id: 9, label: '2020年の米国大統領選挙においてはバイデン陣営に選挙不正があった' },
-  { id: 10, label: '政府が飛行機雲で有害物質を空から散布している（ケムトレイル）' },
-  { id: 11, label: '（追加シナリオ）' },
+  { id: 8, label: '人類は既に宇宙人と接触しているがこの事実は隠されている' },
+  { id: 9, label: '9.11米国同時多発テロ事件には、米国政府が関与している' },
+  { id: 10, label: '2020年の米国大統領選挙においてはバイデン陣営に選挙不正があった' },
+  { id: 11, label: '政府が飛行機雲で有害物質を空から散布している（ケムトレイル）' },
 ]
+const usScenarios = [
+  { id: 1, label: 'The idea of man-made grobal warming is a hoax that was invented to deceive people.' },
+  { id: 2, label: 'The truth about the harmful effects of vaccines is being deliberately hidden from the public.' },
+  { id: 3, label: 'Regardless of who is officially in charge of governments and other organisations, there is a single group of people who secretly control events and rule the world together.' },
+  { id: 4, label: 'The 1969 moon landings were faked.' },
+  { id: 5, label: 'Humanoid reptiles are becoming leaders of various countries and controlling humanity.' },
+  { id: 6, label: 'Democratic Party members are involved in organized criminal activities.' },
+  { id: 7, label: 'Coronavirus is a myth created by some powerful forces, and the virus does not really exist.' },
+  { id: 8, label: 'Humans have made contact with aliens and this fact has been deliberately hidden from the public.' },
+  { id: 9, label: 'The US Government knowingly helped to make the 9/11 terrorist attacks happen in America on 11 September, 2001.' },
+  { id: 10, label: 'There was electoral fraud by the Biden camp in the 2020 U.S. presidential election.' },
+  { id: 11, label: 'The government is spraying harmful substances from the sky (chemtrails).' },
+]
+const scenarios = computed(() => {
+  return countryValue.value === 'JP' ? jpScenarios : usScenarios
+})
 const interventionStageLabel = computed(() => {
   switch (interventionStageValue.value) {
     case 'unaware':
@@ -239,7 +255,7 @@ const canStart = computed(
   max-width: 720px;
   background: #f4f4f5;
   border-radius: 24px;
-  padding: 32px 24px 24px;
+  padding: 40px 60px 40px;
   box-sizing: border-box;
 }
 
