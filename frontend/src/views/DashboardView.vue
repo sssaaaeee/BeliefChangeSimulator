@@ -11,7 +11,11 @@ console.log('DashboardView loaded')
     <div class="dashboard">
       <!-- 左：設定パネル（スクロール可能） -->
       <aside class="settings-pane">
-        <SettingsPanel />
+        <!--handleRestartでステップを0に戻し，Python APIを再呼び出し-->
+        <SettingsPanel
+          @restart="handleRestart"
+          @help="openHelpModal"
+        />
       </aside>
 
       <!-- 右：グラフ＆タイムライン -->
@@ -35,7 +39,7 @@ console.log('DashboardView loaded')
 
 /* 左：設定パネル */
 .settings-pane {
-  width: 25vw;
+  width: 350px;
   border-right: 1px solid #e5e7eb;
   padding: 16px;
   box-sizing: border-box;
