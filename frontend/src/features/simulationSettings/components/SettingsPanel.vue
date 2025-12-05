@@ -161,15 +161,18 @@ const onClickHelp = () => emit('help')
       <p class="degree-value">degree: {{ degreeDisplay }}</p>
     </section>
 
-    <div class="footer">
-      <button
-        class="restart-btn"
-        type="button"
-        @click="onClickRestart"
-      >
-        Restart Simulation
-      </button>
-    </div>
+    <!-- フッター用の余白 -->
+    <div class="spacer"></div>
+  </div>
+
+  <div class="footer">
+    <button
+      class="restart-btn"
+      type="button"
+      @click="onClickRestart"
+    >
+      Restart Simulation
+    </button>
   </div>
 </template>
 
@@ -179,6 +182,8 @@ const onClickHelp = () => emit('help')
   flex-direction: column;
   height: 100%;
   font-size: 13px;
+  overflow-y: auto; /* ← 左だけスクロール */
+  padding: 16px;
 }
 
 /* 上のタイトル行 */
@@ -267,20 +272,35 @@ const onClickHelp = () => emit('help')
   margin-top: 4px;
 }
 
+/* フッター用の余白 */
+.spacer {
+  height: 120px;
+  flex-shrink: 0;
+}
+
 /* フッタの Restart ボタン */
 .footer {
-  margin-top: auto;
-  padding-top: 12px;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
 }
 
 .restart-btn {
-  width: 100%;
+  width: 90%;
+  height: 40px;
   padding: 8px 0;
   border-radius: 9999px;
-  border: 1px solid #111827;
-  background: #fff;
+  background: black;
+  border: solid 1px black;
+  color: white;
   font-size: 13px;
   cursor: pointer;
-  margin-bottom: 30px;
+  margin-top: 30px;
 }
 </style>

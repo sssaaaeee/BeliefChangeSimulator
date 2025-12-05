@@ -41,9 +41,8 @@ console.log('DashboardView loaded')
 .settings-pane {
   width: 350px;
   border-right: 1px solid #e5e7eb;
-  padding: 16px;
   box-sizing: border-box;
-  overflow-y: auto; /* ← 左だけスクロール */
+  position: relative;
 }
 
 /* 右：可視化エリア */

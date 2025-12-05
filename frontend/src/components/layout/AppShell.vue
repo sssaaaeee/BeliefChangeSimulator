@@ -39,6 +39,7 @@ function goHome() {
   align-items: center;
   padding: 0 12px;
   border-bottom: 1px solid #e5e7eb;
+
 }
 
 .nav-btn {
