@@ -1,22 +1,26 @@
 <script setup>
-import SideBar from '@/components/layout/SideBar.vue'
-import MainArea from '@/components/layout/MainArea.vue'
 // 骨格の設定
 console.log('AppShell loaded')
+import { useRouter } from 'vue-router';
+const router = useRouter();
+function goHome() {
+  router.push('/');
+}
 </script>
 
 <template>
   <div class="app-shell">
-    <aside class="sidebar">
-      <SideBar>
-        <slot></slot>
-      </SideBar>
-    </aside>
+    <!-- 上部ナビゲーション -->
+    <header class="app-header">
+      <button class="nav-btn" @click="goHome">
+        <img src="../../assets/home.svg" class="icon" alt="Home" />
+      </button>
+      <slot name="header-right"></slot>
+    </header>
 
-    <main class="main-area">
-      <MainArea>
-        <slot></slot>
-      </MainArea>
+    <!-- メインのページ表示領域 -->
+    <main class="app-main">
+      <slot></slot>
     </main>
   </div>
 </template>
@@ -24,20 +28,37 @@ console.log('AppShell loaded')
 <style scoped>
 .app-shell {
   display: flex;
-  height: 100vh; /* ここ重要：Sidebar の高さ基準になる */
+  flex-direction: column;
+  height: 100vh;
 }
 
-/* ← ここを aside で囲っておくと、スクロールしやすい */
-.sidebar {
-  width: 25vw;
-  height: 100%;
-  overflow-y: auto; /* ⭐︎ Sidebar だけスクロール */
-  border-right: 1px solid #e5e7eb;
+/* 上部ナビゲーション */
+.app-header {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border-bottom: 1px solid #e5e7eb;
 }
 
-.main-area {
+.nav-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+}
+
+/* メイン領域：ページ側がレイアウトを作る */
+.app-main {
   flex: 1;
-  height: 100%;
-  overflow: hidden; /* ⭐︎ メイン領域のスクロールは切る */
+  overflow: hidden;
+  display: flex;
 }
 </style>
