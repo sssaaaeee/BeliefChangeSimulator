@@ -183,7 +183,7 @@ const onClickHelp = () => emit('help')
   height: 100%;
   font-size: 13px;
   overflow-y: auto; /* ← 左だけスクロール */
-  padding: 16px;
+  padding: 25px;
 }
 
 /* 上のタイトル行 */
@@ -284,7 +284,7 @@ const onClickHelp = () => emit('help')
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 20%;
+  height: 15%;
   display: flex;
   align-items: center;
   justify-content: center;
