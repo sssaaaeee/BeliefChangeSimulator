@@ -1,9 +1,17 @@
 <script setup>
+import { useRouter } from 'vue-router';
+const router = useRouter();
 import AppShell from '@/components/layout/AppShell.vue';
 import SettingsPanel from '@/features/simulationSettings/components/SettingsPanel.vue';
 import BeliefGraph from '@/features/beliefNetwork/components/BeliefGraph.vue';
 import TimelineControlBar from '@/features/beliefNetwork/components/TimelineControlBar.vue';
 console.log('DashboardView loaded')
+// SettingsPanel からの再スタートイベントを受け取る
+function handleRestart() {
+  console.log('Restart event received in DashboardView');
+  // ステップを0に戻し，Python APIを再呼び出しするためにルーターで遷移
+  router.push('/simulation/restart');
+}
 </script>
 
 <template>

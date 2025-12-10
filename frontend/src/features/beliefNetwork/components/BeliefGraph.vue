@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from 'vue';
 import { useBeliefNetworkView } from '../useBeliefNetworkView';
 console.log('BeliefGraph loaded')
 const {
@@ -8,6 +9,17 @@ const {
   error,
   getCurrentFrame
 } = useBeliefNetworkView();
+
+// currentStepが変わると自動的に再計算される
+const currentFrameUrl = computed(() => {
+  console.log('Computing frame for step:', currentStep.value);
+  return getCurrentFrame();
+});
+
+const stepDisplay = computed(() => {
+  console.log('Computing step display:', currentStep.value, '/', totalSteps.value);
+  return `Step ${currentStep.value + 1} / ${totalSteps.value}`;
+});
 </script>
 
 <template>
@@ -20,14 +32,14 @@ const {
       <p>Error: {{ error }}</p>
     </div>
 
-    <div v-else-if="getCurrentFrame()" class="graph-container">
+    <div v-else-if="currentFrameUrl" class="graph-container">
       <img
-        :src="getCurrentFrame()"
+        :src="currentFrameUrl"
         alt="Belief Network Graph"
         class="network-image"
       />
       <div class="step-indicator">
-        Step {{ currentStep + 1 }} / {{ totalSteps }}
+        {{ stepDisplay }}
       </div>
     </div>
 
