@@ -15,7 +15,7 @@ const {
 
 const isPlaying = ref(false);
 const playInterval = ref(null);
-const playSpeed = ref(300); // ms per frame
+const playSpeed = ref(100); // ms per frame
 
 const canGoPrev = computed(() => currentStep.value > 0);
 const canGoNext = computed(() => currentStep.value < totalSteps.value - 1);
@@ -184,6 +184,7 @@ const onSliderChange = (event) => {
   border-radius: 3px;
   outline: none;
   -webkit-appearance: none;
+  appearance: none;
 }
 
 .timeline-slider::-webkit-slider-thumb {

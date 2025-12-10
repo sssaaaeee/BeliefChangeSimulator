@@ -35,6 +35,7 @@ console.log('DashboardView loaded')
 .dashboard {
   display: flex;
   height: 100%;
+  width: 100%;
 }
 
 /* 左：設定パネル */
@@ -51,7 +52,7 @@ console.log('DashboardView loaded')
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  width: 100vw;
+  width: 100%;
 }
 
 /* ネットワーク描画エリア（上） */
