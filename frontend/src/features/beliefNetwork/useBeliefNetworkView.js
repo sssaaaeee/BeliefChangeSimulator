@@ -72,13 +72,8 @@ const goToStep = (step) => {  // 指定したステップへ
 };
 
 export function useBeliefNetworkView() {
-  // 最初の呼び出し時のみfetchSimulationを実行
-  if (!isMounted) {
-    isMounted = true;
-    onMounted(() => {
-      fetchSimulation();
-    });
-  }
+
+  fetchSimulation(); // 毎回fetchSimulationを実行
 
   return {
     frames,
