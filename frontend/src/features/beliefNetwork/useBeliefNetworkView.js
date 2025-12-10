@@ -1,5 +1,9 @@
 import { ref, onMounted } from "vue";
 import axios from "axios";
+import { useSimulationParams } from "../simulationSettings/useSimulationParams";
+
+const { country, selectedScenarioId, interventionStage, degree } = useSimulationParams()
+console.log("Simulation Params:", country, selectedScenarioId, interventionStage, degree);
 
 export function useBeliefNetworkView() {
   const output = ref(null);
