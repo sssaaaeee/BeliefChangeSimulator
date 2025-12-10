@@ -63,6 +63,7 @@ const onClickHelp = () => emit('help')
 </script>
 
 <template>
+<div class="settings-panel-wrapper">
   <div class="settings-root">
     <header class="settings-header">
       <h1 class="settings-title">Settings</h1>
@@ -174,15 +175,22 @@ const onClickHelp = () => emit('help')
       Restart Simulation
     </button>
   </div>
+</div>
 </template>
 
 <style scoped>
-.settings-root {
+.settings-panel-wrapper {
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+.settings-root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   font-size: 13px;
-  overflow-y: auto; /* ← 左だけスクロール */
+  overflow-y: auto;
   padding: 25px;
 }
 
