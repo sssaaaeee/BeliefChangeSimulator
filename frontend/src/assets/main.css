@@ -33,3 +33,29 @@ a,
     padding: 0 2rem;
   }
 } */
+
+/* ラジオボタンのカスタムスタイル */
+input[type="radio"] {
+  /* 四角形にする */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #555;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  margin: 0 8px 0 0;
+}
+input[type="radio"]:checked::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 8px;
+  height: 8px;
+  background-color: #555;
+  border-radius: 2px;
+}

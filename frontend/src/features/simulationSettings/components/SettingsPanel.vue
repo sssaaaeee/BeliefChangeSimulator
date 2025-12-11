@@ -253,7 +253,16 @@ const onClickHelp = () => emit('help')
   display: flex;
   align-items: flex-start;
   gap: 6px;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
+}
+
+.scenario-item input[type="radio"] {
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.scenario-item span {
+  line-height: 1.4;
 }
 
 /* degree スライダー */
