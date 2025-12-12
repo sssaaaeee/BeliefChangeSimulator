@@ -2,9 +2,13 @@
 // 骨格の設定
 console.log('AppShell loaded')
 import { useRouter } from 'vue-router';
+import { useBeliefNetworkView } from '@/features/beliefNetwork/useBeliefNetworkView';
 const router = useRouter();
 function goHome() {
   router.push('/');
+  // ホームに戻ったときに状態をリセット
+  const { resetView } = useBeliefNetworkView();
+  resetView();
 }
 </script>
 
