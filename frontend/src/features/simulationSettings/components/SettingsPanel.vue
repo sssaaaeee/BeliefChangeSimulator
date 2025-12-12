@@ -274,6 +274,7 @@ const onClickHelp = () => emit('help')
 
 .degree-slider {
   flex: 1;
+  accent-color: #000000;
 }
 
 .degree-min,
