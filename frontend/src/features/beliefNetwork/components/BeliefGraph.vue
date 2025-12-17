@@ -5,6 +5,7 @@ console.log('BeliefGraph loaded')
 const {
   currentStep,
   totalSteps,
+  stateCounts,
   loading,
   error,
   getCurrentFrame
@@ -18,7 +19,7 @@ const currentFrameUrl = computed(() => {
 
 const stepDisplay = computed(() => {
   console.log('Computing step display:', currentStep.value, '/', totalSteps.value);
-  return `Step ${currentStep.value + 1} / ${totalSteps.value}`;
+  return `Step ${currentStep.value} / ${totalSteps.value - 1}`;
 });
 </script>
 
@@ -40,6 +41,13 @@ const stepDisplay = computed(() => {
       />
       <div class="step-indicator">
         {{ stepDisplay }}
+      </div>
+      <!-- 色ごとのノード数も表示 -->
+      <div class="state-counts">
+        <p>Unrecognized: {{ stateCounts.Unrecognized }}</p>
+        <p>Recognized: {{ stateCounts.Recognized }}</p>
+        <p>Belief: {{ stateCounts.Belief }}</p>
+        <p>Action: {{ stateCounts.Action }}</p>
       </div>
     </div>
 
@@ -96,5 +104,46 @@ const stepDisplay = computed(() => {
   padding: 8px 16px;
   border-radius: 4px;
   font-size: 14px;
+}
+
+.state-counts {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.state-counts p {
+  display: flex;
+  align-items: center;
+  margin: 4px 0;
+}
+
+.state-counts p::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.state-counts p:nth-child(1)::before {
+  background-color: #cccccc;
+}
+
+.state-counts p:nth-child(2)::before {
+  background-color: #1f77b4;
+}
+
+.state-counts p:nth-child(3)::before {
+  background-color: #ff7f0e;
+}
+
+.state-counts p:nth-child(4)::before {
+  background-color: #d62728;
 }
 </style>

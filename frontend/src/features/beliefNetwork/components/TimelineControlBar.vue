@@ -94,7 +94,7 @@ const onSliderChange = (event) => {
 
       <!-- Step Display -->
       <div class="step-display">
-        {{ currentStep + 1 }} / {{ totalSteps }}
+        {{ currentStep }} / {{ totalSteps - 1 }}
       </div>
     </div>
 

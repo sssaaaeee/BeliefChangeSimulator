@@ -9,6 +9,7 @@ console.log("Simulation Params:", country, selectedScenarioId, interventionStage
 const frames = ref([]);
 const currentStep = ref(0); // 現在表示中のステップ
 const totalSteps = ref(0); // 総ステップ数
+const stateCounts = ref(null); // 各状態のノード数
 const loading = ref(false); // ローディング状態(フラグ)
 const error = ref(null);  // エラーメッセージ
 let isMounted = false; // onMountedを一度だけ実行するフラグ
@@ -44,6 +45,11 @@ const fetchSimulation = async () => { // シミュレーションを再実行
     const json_data = await response.json();
     frames.value = json_data.frames;
     totalSteps.value = json_data.total_steps;
+    // 色ごとのノード数も取得
+    if (frames.value.length > 0) {
+      stateCounts.value = frames.value[0].state_counts;
+      console.log("State counts for first frame:", stateCounts.value);
+    }
     currentStep.value = 0;
     console.log(`Loaded ${totalSteps.value} frames from JSON`);
   } catch (err) {
@@ -66,6 +72,7 @@ const nextStep = () => {  // 次のステップへ
   if (currentStep.value < totalSteps.value - 1) {
     console.log(`Advancing from step ${currentStep.value} to ${currentStep.value + 1}`);
     currentStep.value++;
+    updateStateCounts();
   }
 };
 
@@ -73,6 +80,7 @@ const prevStep = () => {  // 前のステップへ
   if (currentStep.value > 0) {
     console.log(`Reversing from step ${currentStep.value} to ${currentStep.value - 1}`);
     currentStep.value--;
+    updateStateCounts();
   }
 };
 
@@ -80,6 +88,13 @@ const goToStep = (step) => {  // 指定したステップへ
   if (step >= 0 && step < totalSteps.value) {
     console.log(`Jumping to step ${step} from step ${currentStep.value}`);
     currentStep.value = step;
+    updateStateCounts();
+  }
+};
+
+const updateStateCounts = () => {
+  if (frames.value.length > 0 && currentStep.value < frames.value.length) {
+    stateCounts.value = frames.value[currentStep.value].state_counts;
   }
 };
 
@@ -96,6 +111,7 @@ export function useBeliefNetworkView() {
     frames,
     currentStep,
     totalSteps,
+    stateCounts,
     loading,
     error,
     getCurrentFrame,
@@ -105,3 +121,4 @@ export function useBeliefNetworkView() {
     fetchSimulation,
   };
 }
+

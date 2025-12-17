@@ -155,7 +155,7 @@ const canStart = computed(
               value="unaware"
               v-model="interventionStageValue"
             />
-            <span>for Unaware Users</span>
+            <span>for Unrecognized Users</span>
           </label>
           <label>
             <input
@@ -171,7 +171,7 @@ const canStart = computed(
               value="believing"
               v-model="interventionStageValue"
             />
-            <span>for Believing Users</span>
+            <span>for Belief Users</span>
           </label>
         </div>
       </section>
