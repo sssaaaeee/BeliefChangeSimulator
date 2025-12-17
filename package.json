@@ -1,6 +1,7 @@
 {
   "scripts": {
     "dev": "npm --prefix frontend run dev",
+    "host": "npm --prefix frontend run dev -- --host",
     "start": "python /Users/otanisae/BeliefChangeSimulator/backend/app.py"
   },
   "devDependencies": {

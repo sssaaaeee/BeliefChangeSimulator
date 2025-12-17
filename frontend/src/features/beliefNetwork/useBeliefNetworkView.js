@@ -20,14 +20,14 @@ const fetchSimulation = async () => { // シミュレーションを再実行
 
   const countryValue = country.value || 'US';
   const scenarioValue = selectedScenarioId.value || 1;
-  const stageValue = interventionStage.value || 'unaware';
+  const stageValue = interventionStage.value || 'Unrecognized';
   let interventionStageNum = 1;
 
-  if (stageValue === 'unaware') {
+  if (stageValue === 'Unrecognized') {
     interventionStageNum = 1;
-  } else if (stageValue === 'recognized') {
+  } else if (stageValue === 'Recognized') {
     interventionStageNum = 2;
-  } else if (stageValue === 'believing') {
+  } else if (stageValue === 'Belief') {
     interventionStageNum = 3;
   }
 

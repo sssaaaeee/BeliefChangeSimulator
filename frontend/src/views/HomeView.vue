@@ -63,12 +63,12 @@ const scenarios = computed(() => {
 })
 const interventionStageLabel = computed(() => {
   switch (interventionStageValue.value) {
-    case 'unaware':
-      return 'for Unaware Users'
-    case 'recognized':
+    case 'Unrecognized':
+      return 'for Unrecognized Users'
+    case 'Recognized':
       return 'for Recognized Users'
-    case 'believing':
-      return 'for Believing Users'
+    case 'Belief':
+      return 'for Belief Users'
     default:
       return ''
   }
@@ -104,7 +104,7 @@ const canStart = computed(
     <main class="card">
       <!-- Country -->
       <section class="section">
-        <h2 class="section-title">Choose country.</h2>
+        <h2 class="section-title">Country.</h2>
         <div class="row">
           <label>
             <input
@@ -127,7 +127,7 @@ const canStart = computed(
 
       <!-- Scenario -->
       <section class="section">
-        <h2 class="section-title">Choose scenario.</h2>
+        <h2 class="section-title">Conspiracy.</h2>
         <ul class="scenario-list">
           <li
             v-for="scenario in scenarios"
@@ -147,12 +147,12 @@ const canStart = computed(
 
       <!-- Intervention situation -->
       <section class="section">
-        <h2 class="section-title">Choose intervention situation.</h2>
+        <h2 class="section-title">Intervention situation.</h2>
         <div class="row">
           <label>
             <input
               type="radio"
-              value="unaware"
+              value="Unrecognized"
               v-model="interventionStageValue"
             />
             <span>for Unrecognized Users</span>
@@ -160,7 +160,7 @@ const canStart = computed(
           <label>
             <input
               type="radio"
-              value="recognized"
+              value="Recognized"
               v-model="interventionStageValue"
             />
             <span>for Recognized Users</span>
@@ -168,7 +168,7 @@ const canStart = computed(
           <label>
             <input
               type="radio"
-              value="believing"
+              value="Belief"
               v-model="interventionStageValue"
             />
             <span>for Belief Users</span>
@@ -178,7 +178,7 @@ const canStart = computed(
 
       <!-- Intervention degree -->
       <section class="section">
-        <h2 class="section-title">Choose intervention degree.</h2>
+        <h2 class="section-title">Intervention degree.</h2>
         <p class="degree-caption">
           *“{{ interventionStageLabel }}” is selected.
         </p>
@@ -201,7 +201,7 @@ const canStart = computed(
       <!-- Start ボタン -->
       <div class="actions">
         <button
-          class="start-btn"
+          class="button-32 start-btn"
           :disabled="!canStart"
           @click="startSimulation"
         >
@@ -210,7 +210,7 @@ const canStart = computed(
       </div>
     </main>
 
-    <button class="button-32">ボタンデザイン</button>
+    <!-- <button class="button-32">ボタンデザイン</button> -->
   </div>
 </template>
 
@@ -259,6 +259,8 @@ const canStart = computed(
   border-radius: 24px;
   padding: 40px 60px 40px;
   box-sizing: border-box;
+  position: relative;
+  z-index: 0;
 }
 
 .actions {
@@ -374,55 +376,54 @@ const canStart = computed(
   background: #9ca3af;
   cursor: not-allowed;
 }
-
 .button-32 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 250px;
-    margin:0 auto;
-    padding: .9em 2em;
-    overflow: hidden;
-    border: 1px solid #000000;
-    border-radius: 25px;
-    background-color: #fff;
-    color: #000000;
-    font-size: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 250px;
+  margin:0 auto;
+  padding: .9em 2em;
+  overflow: hidden;
+  border: 1px solid #000000;
+  border-radius: 25px;
+  background-color: #fff;
+  color: #000000;
+  font-size: 1em;
 }
 
-.button-32:hover {
-    background-color: transparent;
-    color: #fff;
+.button-32:hover:not(:disabled) {
+  background-color: transparent;
+  color: #fff;
 }
 
 .button-32::before {
-    position: absolute;
-    z-index: -1;
-    transform: rotate(-30deg);
-    width: 100%;
-    height: 0;
-    border-radius: 25px;
-    background-color: #000000;
-    content: '';
-    transition: height .3s ease;
+  position: absolute;
+  z-index: -1;
+  transform: rotate(-30deg);
+  width: 100%;
+  height: 0;
+  border-radius: 25px;
+  background-color: #000000;
+  content: '';
+  transition: height .3s ease;
 }
 
-.button-32:hover::before {
-    height: 350%;
+.button-32:hover:not(:disabled)::before {
+  height: 350%;
 }
 
 .button-32::after {
-    transform: rotate(45deg);
-    width: 5px;
-    height: 5px;
-    margin-left: 10px;
-    border-top: 2px solid #000000;
-    border-right: 2px solid #000000;
-    content: '';
+  transform: rotate(45deg);
+  width: 5px;
+  height: 5px;
+  margin-left: 10px;
+  border-top: 2px solid #000000;
+  border-right: 2px solid #000000;
+  content: '';
 }
 
-.button-32:hover::after {
-    border-color: #fff;
+.button-32:hover:not(:disabled)::after {
+  border-color: #fff;
 }
 </style>

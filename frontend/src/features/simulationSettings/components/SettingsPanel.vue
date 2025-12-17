@@ -95,7 +95,7 @@ const onClickHelp = () => emit('help')
 
     <!--scenario-->
     <section class="section">
-      <h2 class="section-label">scenario</h2>
+      <h2 class="section-label">conspiracy</h2>
       <ul class="scenario-list">
         <li
           v-for="scenario in scenarios"
@@ -120,7 +120,7 @@ const onClickHelp = () => emit('help')
         <label class="option">
           <input
             type="radio"
-            value="unaware"
+            value="Unrecognized"
             v-model="interventionStageValue"
           />
           <span>for Unrecognized Users</span>
@@ -128,7 +128,7 @@ const onClickHelp = () => emit('help')
         <label class="option">
           <input
             type="radio"
-            value="recognized"
+            value="Recognized"
             v-model="interventionStageValue"
           />
           <span>for Recognized Users</span>
@@ -136,7 +136,7 @@ const onClickHelp = () => emit('help')
         <label class="option">
           <input
             type="radio"
-            value="believing"
+            value="Belief"
             v-model="interventionStageValue"
           />
           <span>for Belief Users</span>
