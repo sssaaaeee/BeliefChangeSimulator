@@ -11,6 +11,10 @@ function handleRestart() {
   goToStep(0);
   fetchSimulation();
 }
+function openHelpModal() {
+  // ヘルプモーダルを開く（実装は後で）
+  alert('Help modal would open here.');
+}
 </script>
 
 <template>

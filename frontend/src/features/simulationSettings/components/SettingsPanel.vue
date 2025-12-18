@@ -218,6 +218,13 @@ const onClickHelp = () => emit('help')
   font-size: 14px;
 }
 
+.help-btn:hover {
+  /* 少し大きくする */
+  transform: scale(1.1);
+  /* スムーズに拡大 */
+  transition: transform 0.2s;
+}
+
 /* 各ブロック */
 .section {
   margin-bottom: 16px;

@@ -59,6 +59,9 @@ function goHome() {
   height: 20px;
   opacity: 0.7;
 }
+.icon:hover {
+  opacity: 1;
+}
 
 /* メイン領域：ページ側がレイアウトを作る */
 .app-main {
