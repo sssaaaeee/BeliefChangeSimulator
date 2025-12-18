@@ -98,14 +98,14 @@ const updateStateCounts = () => {
   }
 };
 
+const resetView = () => {
+  currentStep.value = 0;
+  updateStateCounts();
+};
+
 export function useBeliefNetworkView() {
-  // 最初の呼び出し時のみfetchSimulationを実行
-  if (!isMounted) {
-    isMounted = true;
-    onMounted(() => {
-      fetchSimulation();
-    });
-  }
+  // DashboardViewから明示的にfetchSimulationが呼ばれるので、
+  // ここではonMountedフックを設定しない
 
   return {
     frames,
@@ -119,6 +119,7 @@ export function useBeliefNetworkView() {
     prevStep,
     goToStep,
     fetchSimulation,
+    resetView,
   };
 }
 

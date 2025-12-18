@@ -1,10 +1,18 @@
 <script setup>
+import { onMounted } from 'vue';
 import AppShell from '@/components/layout/AppShell.vue';
 import SettingsPanel from '@/features/simulationSettings/components/SettingsPanel.vue';
 import BeliefGraph from '@/features/beliefNetwork/components/BeliefGraph.vue';
 import TimelineControlBar from '@/features/beliefNetwork/components/TimelineControlBar.vue';
 import { useBeliefNetworkView } from '@/features/beliefNetwork/useBeliefNetworkView.js';
 console.log('DashboardView loaded')
+
+// DashboardViewがマウントされたら必ずfetchを実行
+onMounted(() => {
+  const { fetchSimulation } = useBeliefNetworkView();
+  fetchSimulation();
+});
+
 function handleRestart() {
   // ステップを0に戻し，Python APIを再呼び出し
   const { goToStep, fetchSimulation } = useBeliefNetworkView();
