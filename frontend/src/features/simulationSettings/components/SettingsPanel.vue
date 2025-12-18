@@ -60,6 +60,7 @@ const degreeDisplay = computed(() => degreeValue.value.toFixed(1))
 
 const onClickRestart = () => emit('restart')
 const onClickHelp = () => emit('help')
+const onClickHidden = () => emit('hidden')
 </script>
 
 <template>
@@ -67,7 +68,10 @@ const onClickHelp = () => emit('help')
   <div class="settings-root">
     <header class="settings-header">
       <h1 class="settings-title">Settings</h1>
-      <button class="help-btn" @click="onClickHelp">?</button>
+      <div class="header-buttons">
+        <button class="help-btn" @click="onClickHelp">?</button>
+        <button class="hidden-btn" @click="onClickHidden">←</button>
+      </div>
     </header>
 
     <!--country-->
@@ -223,6 +227,30 @@ const onClickHelp = () => emit('help')
   transform: scale(1.1);
   /* スムーズに拡大 */
   transition: transform 0.2s;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.hidden-btn {
+  width: 40px;
+  height: 28px;
+  border-radius: 8px 0 0 8px;
+  border: none;
+  background: #111827;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.hidden-btn:hover {
+  background: #374151;
 }
 
 /* 各ブロック */
