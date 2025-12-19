@@ -232,6 +232,7 @@ const onClickHidden = () => emit('hidden')
 .header-buttons {
   display: flex;
   gap: 8px;
+  margin-right: -25px;
 }
 
 .hidden-btn {
