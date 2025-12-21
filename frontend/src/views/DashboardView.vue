@@ -108,8 +108,8 @@ function hiddenPanel() {
 }
 
 .settings-pane--hidden {
-  width: 0;
-  border-right: none;
+  transform: translateX(-100%);
+  width: 0px;
 }
 
 /* パネル再表示ボタン */
