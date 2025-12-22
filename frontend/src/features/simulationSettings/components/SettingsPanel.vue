@@ -152,16 +152,16 @@ const onClickHidden = () => emit('hidden')
     <section class="section">
       <h2 class="section-label">degree</h2>
       <div class="degree-row">
-        <span class="degree-min">0.1</span>
+        <span class="degree-min">strong</span>
         <input
           class="degree-slider"
           type="range"
           min="0.1"
-          max="1.0"
+          max="0.9"
           step="0.1"
           v-model.number="degreeValue"
         />
-        <span class="degree-max">1.0</span>
+        <span class="degree-max">weak</span>
       </div>
       <p class="degree-value">degree: {{ degreeDisplay }}</p>
     </section>

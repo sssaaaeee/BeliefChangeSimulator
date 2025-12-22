@@ -1,6 +1,6 @@
 <script setup>
 import { useRouter } from 'vue-router'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useSimulationParams } from '../features/simulationSettings/useSimulationParams.js'
 console.log('HomeView loaded')
 const router = useRouter()
@@ -23,6 +23,7 @@ const scenarioIdValue = computed({
   get: () => selectedScenarioId.value,
   set: v => (selectedScenarioId.value = v),
 })
+const interventionEnabled = ref(false)
 const interventionStageValue = computed({
   get: () => interventionStage.value,
   set: v => (interventionStage.value = v),
@@ -74,12 +75,18 @@ const interventionStageLabel = computed(() => {
   }
 })
 
+// on/off ボタンが on のときだけ 下のパラメータ選択を有効にする
+const canSelect = computed(() => interventionEnabled.value)
+
 // 必須パラメータがそろっているときだけ Start を有効にする
 const canStart = computed(
   () =>
-    !!countryValue.value &&
+    (!!countryValue.value &&
     !!scenarioIdValue.value &&
-    !!interventionStageValue.value,
+      !!interventionStageValue.value) ||
+    (!!countryValue.value &&
+      !!scenarioIdValue.value &&
+      !interventionEnabled.value)
 )
 </script>
 
@@ -145,31 +152,47 @@ const canStart = computed(
         </ul>
       </section>
 
+      <!-- Intervention on/off -->
+      <section class="section">
+        <h2 class="section-title">Intervention on/off.</h2>
+        <div class="row">
+          <label class="toggle-button">
+            <input
+              type="checkbox"
+              v-model="interventionEnabled"
+            />
+          </label>
+        </div>
+      </section>
+
       <!-- Intervention situation -->
       <section class="section">
         <h2 class="section-title">Intervention situation.</h2>
         <div class="row">
-          <label>
+          <label class="option">
             <input
               type="radio"
               value="Unrecognized"
               v-model="interventionStageValue"
+              :disabled="!canSelect"
             />
             <span>for Unrecognized Users</span>
           </label>
-          <label>
+          <label class="option">
             <input
               type="radio"
               value="Recognized"
               v-model="interventionStageValue"
+              :disabled="!canSelect"
             />
             <span>for Recognized Users</span>
           </label>
-          <label>
+          <label class="option">
             <input
               type="radio"
               value="Belief"
               v-model="interventionStageValue"
+              :disabled="!canSelect"
             />
             <span>for Belief Users</span>
           </label>
@@ -183,15 +206,16 @@ const canStart = computed(
           *“{{ interventionStageLabel }}” is selected.
         </p>
         <div class="degree-slider">
-          <span>0.1</span>
+          <span>strong</span>
           <input
             type="range"
             min="0.1"
-            max="1.0"
+            max="0.9"
             step="0.1"
             v-model.number="degreeValue"
+            :disabled="!canSelect"
           />
-          <span>1.0</span>
+          <span>weak</span>
         </div>
         <p class="degree-value">
           degree: {{ degreeValue.toFixed(1) }}
@@ -328,6 +352,62 @@ const canStart = computed(
 
 .scenario-item span {
   line-height: 1.4;
+}
+
+/* on/off ボタンのレイアウト */
+.toggle-button {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 80px;
+  height: 40px;
+  border-radius: 40px;
+  box-sizing: content-box;
+  background-color: #00000033;
+  cursor: pointer;
+}
+
+.toggle-button:has(:checked) {
+  background-color: #0080ff33;
+}
+
+.toggle-button::before{
+  position: absolute;
+  left: 4px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #000000;
+  content: '';
+}
+
+.toggle-button:has(:checked)::before {
+  left: 44px;
+  background-color: #0080ff;
+}
+
+.toggle-button::after {
+  position: absolute;
+  left: 20px;
+  transform: translateX(-50%);
+  color: #fff;
+  font-weight: 600;
+  font-size: .8em;
+  content: 'OFF';
+}
+
+.toggle-button:has(:checked)::after {
+  left: 60px;
+  content: 'ON';
+}
+
+.toggle-button input {
+  display: none;
+}
+
+.option:has(input:disabled) {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .degree-caption {
