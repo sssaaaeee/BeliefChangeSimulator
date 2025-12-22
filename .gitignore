@@ -34,7 +34,3 @@ coverage
 
 # Vitest
 __screenshots__/
-frontend/public/json/*.json
-!frontend/public/json/JP_scenario11*.json
-!frontend/public/json/US_scenario1_*.json
-!frontend/public/json/US_scenario11*.json
