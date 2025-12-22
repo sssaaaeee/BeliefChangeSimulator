@@ -4,7 +4,7 @@ import { computed, ref } from 'vue'
 import { useSimulationParams } from '../features/simulationSettings/useSimulationParams.js'
 console.log('HomeView loaded')
 const router = useRouter()
-const { country, selectedScenarioId, interventionStage, degree } = useSimulationParams()
+const { country, selectedScenarioId, interventionEnabled, interventionStage, degree } = useSimulationParams()
 function startSimulation() {
   if (!canStart.value) return
   // この時点で useSimulationParams の値が埋まっているので
@@ -23,7 +23,10 @@ const scenarioIdValue = computed({
   get: () => selectedScenarioId.value,
   set: v => (selectedScenarioId.value = v),
 })
-const interventionEnabled = ref(false)
+const interventionEnabledValue = computed({
+  get: () => interventionEnabled.value,
+  set: v => (interventionEnabled.value = v),
+})
 const interventionStageValue = computed({
   get: () => interventionStage.value,
   set: v => (interventionStage.value = v),
@@ -86,7 +89,7 @@ const canStart = computed(
       !!interventionStageValue.value) ||
     (!!countryValue.value &&
       !!scenarioIdValue.value &&
-      !interventionEnabled.value)
+      !interventionEnabledValue.value)
 )
 </script>
 
@@ -159,7 +162,7 @@ const canStart = computed(
           <label class="toggle-button">
             <input
               type="checkbox"
-              v-model="interventionEnabled"
+              v-model="interventionEnabledValue"
             />
           </label>
         </div>

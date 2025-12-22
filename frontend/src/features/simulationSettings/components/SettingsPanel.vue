@@ -1,11 +1,11 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useSimulationParams } from '../../simulationSettings/useSimulationParams.js'
 
 // 親（Dashboard）へ送るイベント
 const emit = defineEmits(['restart', 'help'])
 
-const { country, selectedScenarioId, interventionStage, degree } =
+const { country, selectedScenarioId, interventionEnabled, interventionStage, degree } =
   useSimulationParams()
 
 // v-model 用のラッパ
@@ -16,6 +16,10 @@ const countryValue = computed({
 const scenarioIdValue = computed({
   get: () => selectedScenarioId.value,
   set: v => (selectedScenarioId.value = v),
+})
+const interventionEnabledValue = computed({
+  get: () => interventionEnabled.value,
+  set: v => (interventionEnabled.value = v),
 })
 const interventionStageValue = computed({
   get: () => interventionStage.value,
@@ -61,6 +65,9 @@ const degreeDisplay = computed(() => degreeValue.value.toFixed(1))
 const onClickRestart = () => emit('restart')
 const onClickHelp = () => emit('help')
 const onClickHidden = () => emit('hidden')
+
+// on/off ボタンが on のときだけ 下のパラメータ選択を有効にする
+const canSelect = computed(() => interventionEnabled.value)
 </script>
 
 <template>
@@ -117,31 +124,47 @@ const onClickHidden = () => emit('hidden')
       </ul>
     </section>
 
+    <!-- intervention on/off -->
+    <section class="section">
+      <h2 class="section-label">intervention on/off</h2>
+      <div class="inline-options">
+        <label class="option toggle-button">
+          <input
+            type="checkbox"
+            v-model="interventionEnabledValue"
+          />
+        </label>
+      </div>
+    </section>
+
     <!--intervention situation-->
     <section class="section">
       <h2 class="section-label">intervention</h2>
       <div class="inline-options">
-        <label class="option">
+        <label class="option disabled">
           <input
             type="radio"
             value="Unrecognized"
             v-model="interventionStageValue"
+            :disabled="!canSelect"
           />
           <span>for Unrecognized Users</span>
         </label>
-        <label class="option">
+        <label class="option disabled">
           <input
             type="radio"
             value="Recognized"
             v-model="interventionStageValue"
+            :disabled="!canSelect"
           />
           <span>for Recognized Users</span>
         </label>
-        <label class="option">
+        <label class="option disabled">
           <input
             type="radio"
             value="Belief"
             v-model="interventionStageValue"
+            :disabled="!canSelect"
           />
           <span>for Belief Users</span>
         </label>
@@ -160,6 +183,7 @@ const onClickHidden = () => emit('hidden')
           max="0.9"
           step="0.1"
           v-model.number="degreeValue"
+          :disabled="!canSelect"
         />
         <span class="degree-max">weak</span>
       </div>
@@ -299,6 +323,63 @@ const onClickHidden = () => emit('hidden')
 
 .scenario-item span {
   line-height: 1.4;
+}
+
+/* on/off トグルボタン */
+/* on/off ボタンのレイアウト */
+.toggle-button {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 80px;
+  height: 40px;
+  border-radius: 40px;
+  box-sizing: content-box;
+  background-color: #00000033;
+  cursor: pointer;
+}
+
+.toggle-button:has(:checked) {
+  background-color: #0080ff33;
+}
+
+.toggle-button::before{
+  position: absolute;
+  left: 4px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #000000;
+  content: '';
+}
+
+.toggle-button:has(:checked)::before {
+  left: 44px;
+  background-color: #0080ff;
+}
+
+.toggle-button::after {
+  position: absolute;
+  left: 20px;
+  transform: translateX(-50%);
+  color: #fff;
+  font-weight: 600;
+  font-size: .8em;
+  content: 'OFF';
+}
+
+.toggle-button:has(:checked)::after {
+  left: 60px;
+  content: 'ON';
+}
+
+.toggle-button input {
+  display: none;
+}
+
+.disabled:has(input:disabled) {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* degree スライダー */
