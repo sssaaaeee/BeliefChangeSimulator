@@ -105,9 +105,9 @@ const canStart = computed(
         due to differences in information environments.
       </p>
 
-      <button class="about-btn" @click="goAbout">
+      <!-- <button class="about-btn" @click="goAbout">
         About
-      </button>
+      </button> -->
     </header>
 
     <!-- パラメータ初期設定カード -->

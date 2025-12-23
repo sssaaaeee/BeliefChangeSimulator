@@ -77,7 +77,7 @@ const canSelect = computed(() => interventionEnabled.value)
     <header class="settings-header">
       <h1 class="settings-title">Settings</h1>
       <div class="header-buttons">
-        <button class="help-btn" @click="onClickHelp">?</button>
+        <!-- <button class="help-btn" @click="onClickHelp">?</button> -->
         <button class="hidden-btn" @click="onClickHidden">←</button>
       </div>
     </header>
