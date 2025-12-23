@@ -2,8 +2,8 @@ import { ref, onMounted } from "vue";
 // import axios from "axios";
 import { useSimulationParams } from "../simulationSettings/useSimulationParams";
 
-const { country, selectedScenarioId, interventionStage, degree } = useSimulationParams()
-console.log("Simulation Params:", country, selectedScenarioId, interventionStage, degree);
+const { country, selectedScenarioId, interventionEnabled, interventionStage, degree } = useSimulationParams()
+console.log("Simulation Params:", country, selectedScenarioId, interventionEnabled, interventionStage, degree);
 
 // シングルトン: 状態を関数外で定義して共有
 const frames = ref([]);
@@ -34,7 +34,9 @@ const fetchSimulation = async () => { // シミュレーションを再実行
   const degreeValue = degree.value || 0.1;
 
   try {
-    const jsonPath = `/json/${countryValue}_scenario${scenarioValue}_beta${interventionStageNum}_exposure_deg${degreeValue}.json`;
+    const jsonPath = interventionEnabled.value
+      ? `/json/${countryValue}_scenario${scenarioValue}_beta${interventionStageNum}_exposure_deg${degreeValue}.json`
+      : `/json/${countryValue}_scenario${scenarioValue}_base.json`;
     console.log(`Fetching JSON from: ${jsonPath}`);
     const response = await fetch(jsonPath);
 
