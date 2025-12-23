@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { useSimulationParams } from '../../simulationSettings/useSimulationParams.js'
+import CheckboxGroup from '@/components/ui/CheckboxGroup.vue'
 
 // 親（Dashboard）へ送るイベント
 const emit = defineEmits(['restart', 'help'])
@@ -125,17 +126,10 @@ const canSelect = computed(() => interventionEnabled.value)
     </section>
 
     <!-- intervention on/off -->
-    <section class="section">
-      <h2 class="section-label">intervention on/off</h2>
-      <div class="inline-options">
-        <label class="option toggle-button">
-          <input
-            type="checkbox"
-            v-model="interventionEnabledValue"
-          />
-        </label>
-      </div>
-    </section>
+    <CheckboxGroup
+      v-model="interventionEnabledValue"
+      label="intervention on/off"
+    />
 
     <!--intervention situation-->
     <section class="section">
