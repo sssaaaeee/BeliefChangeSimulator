@@ -12,6 +12,7 @@ const totalSteps = ref(0); // 総ステップ数
 const stateCounts = ref(null); // 各状態のノード数
 const loading = ref(false); // ローディング状態(フラグ)
 const error = ref(null);  // エラーメッセージ
+const currentParams = ref(null); // 現在表示中のシミュレーションのパラメータスナップショット
 let isMounted = false; // onMountedを一度だけ実行するフラグ
 
 const fetchSimulation = async () => { // シミュレーションを再実行
@@ -32,6 +33,15 @@ const fetchSimulation = async () => { // シミュレーションを再実行
   }
 
   const degreeValue = degree.value || 0.1;
+
+  // パラメータのスナップショットを保存
+  currentParams.value = {
+    country: countryValue,
+    scenario: scenarioValue,
+    interventionEnabled: interventionEnabled.value,
+    interventionStage: stageValue,
+    degree: degreeValue
+  };
 
   try {
     const jsonPath = interventionEnabled.value
@@ -116,6 +126,7 @@ export function useBeliefNetworkView() {
     stateCounts,
     loading,
     error,
+    currentParams,
     getCurrentFrame,
     nextStep,
     prevStep,

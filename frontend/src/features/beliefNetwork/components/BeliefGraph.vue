@@ -1,6 +1,8 @@
 <script setup>
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useBeliefNetworkView } from '../useBeliefNetworkView';
+import mixerIcon from '../../../assets/mixer.svg';
+
 console.log('BeliefGraph loaded')
 const {
   currentStep,
@@ -8,8 +10,11 @@ const {
   stateCounts,
   loading,
   error,
+  currentParams,
   getCurrentFrame
 } = useBeliefNetworkView();
+
+const showParams = ref(false);
 
 // currentStepが変わると自動的に再計算される
 const currentFrameUrl = computed(() => {
@@ -21,6 +26,10 @@ const stepDisplay = computed(() => {
   console.log('Computing step display:', currentStep.value, '/', totalSteps.value);
   return `Step ${currentStep.value} / ${totalSteps.value - 1}`;
 });
+
+const toggleParams = () => {
+  showParams.value = !showParams.value;
+};
 </script>
 
 <template>
@@ -48,6 +57,36 @@ const stepDisplay = computed(() => {
         <p>Recognized: {{ stateCounts.Recognized }}</p>
         <p>Belief: {{ stateCounts.Belief }}</p>
         <p>Action: {{ stateCounts.Action }}</p>
+      </div>
+
+      <!-- パラメータ表示ボタン -->
+      <button class="param-button" @click="toggleParams" title="Show Parameters">
+        <img :src="mixerIcon" alt="Parameters" />
+      </button>
+
+      <!-- パラメータ表示パネル -->
+      <div v-if="showParams && currentParams" class="params-panel">
+        <h3>Current Parameters</h3>
+        <div class="param-item">
+          <span class="param-label">Country:</span>
+          <span class="param-value">{{ currentParams.country }}</span>
+        </div>
+        <div class="param-item">
+          <span class="param-label">Scenario:</span>
+          <span class="param-value">{{ currentParams.scenario }}</span>
+        </div>
+        <div class="param-item">
+          <span class="param-label">Intervention:</span>
+          <span class="param-value">{{ currentParams.interventionEnabled ? 'Enabled' : 'Disabled' }}</span>
+        </div>
+        <div v-if="currentParams.interventionEnabled" class="param-item">
+          <span class="param-label">Stage:</span>
+          <span class="param-value">{{ currentParams.interventionStage }}</span>
+        </div>
+        <div v-if="currentParams.interventionEnabled" class="param-item">
+          <span class="param-label">Degree:</span>
+          <span class="param-value">{{ currentParams.degree }}</span>
+        </div>
       </div>
     </div>
 
@@ -145,5 +184,70 @@ const stepDisplay = computed(() => {
 
 .state-counts p:nth-child(4)::before {
   background-color: #d62728;
+}
+
+.param-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  padding: 0;
+}
+
+.param-button:hover {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.param-button img {
+  width: 24px;
+  height: 24px;
+  filter: invert(1);
+}
+
+.params-panel {
+  position: absolute;
+  bottom: 80px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 16px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  min-width: 250px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.params-panel h3 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 8px;
+}
+
+.param-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  gap: 16px;
+}
+
+.param-label {
+  font-weight: 500;
+  color: #9ca3af;
+}
+
+.param-value {
+  font-weight: 600;
+  color: #fff;
 }
 </style>
