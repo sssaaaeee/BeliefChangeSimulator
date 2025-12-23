@@ -77,6 +77,13 @@ function hiddenPanel() {
 
       <!-- 右：グラフ＆タイムライン -->
       <section class="visual-pane">
+        <!-- オーバーレイ（小画面でパネル表示時） -->
+        <div
+          v-if="isPanelVisible"
+          class="overlay"
+          @click="hiddenPanel"
+        ></div>
+
         <div class="graph-area">
           <BeliefGraph />
         </div>
@@ -112,6 +119,24 @@ function hiddenPanel() {
   width: 0px;
 }
 
+/* 画面幅800px未満でのオーバーレイ表示 */
+@media (max-width: 800px) {
+  .settings-pane {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 1000;
+    background: white;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .settings-pane--hidden {
+    transform: translateX(-100%);
+    width: 350px;
+  }
+}
+
 /* パネル再表示ボタン */
 .show-panel-btn {
   position: absolute;
@@ -144,6 +169,26 @@ function hiddenPanel() {
   flex-direction: column;
   overflow: hidden;
   width: 100%;
+  position: relative;
+}
+
+/* オーバーレイ（小画面でパネル表示時のみ） */
+.overlay {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    cursor: pointer;
+  }
 }
 
 /* ネットワーク描画エリア（上） */
