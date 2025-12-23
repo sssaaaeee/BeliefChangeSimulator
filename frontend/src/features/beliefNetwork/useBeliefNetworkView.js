@@ -75,9 +75,21 @@ const fetchSimulation = async () => { // シミュレーションを再実行
 };
 
 const getCurrentFrame = () => { // 現在のステップの画像URLを取得
-  if (frames.value.length > 0 && currentStep.value < frames.value.length) {
+  // 現在のパラメータのスナップショットを使用して画像パスを生成
+  if (frames.value.length > 0 && currentStep.value < frames.value.length && currentParams.value) {
     console.log(`Getting frame for step ${currentStep.value}`);
-    return `/webp/${currentParams.value.country}_scenario${currentParams.value.scenario}_${currentParams.value.interventionEnabled ? `beta${interventionStageNum}_exposure_deg${currentParams.value.degree}` : "base"}/${frames.value[currentStep.value].image_path}`;
+    const { country: countryValue, scenario: scenarioValue, interventionEnabled: interventionEnabledValue, interventionStage: stageValue, degree: degreeValue } = currentParams.value;
+
+    let interventionStageNum = 1;
+    if (stageValue === 'Unrecognized') {
+      interventionStageNum = 1;
+    } else if (stageValue === 'Recognized') {
+      interventionStageNum = 2;
+    } else if (stageValue === 'Belief') {
+      interventionStageNum = 3;
+    }
+
+    return `/webp/${countryValue}_scenario${scenarioValue}_${interventionEnabledValue ? `beta${interventionStageNum}_exposure_deg${degreeValue}` : "base"}/${frames.value[currentStep.value].image_path}`;
   }
   return null;
 };
