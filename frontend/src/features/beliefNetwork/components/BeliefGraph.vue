@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useBeliefNetworkView } from '../useBeliefNetworkView';
 import mixerIcon from '../../../assets/mixer.svg';
 
@@ -11,10 +11,23 @@ const {
   loading,
   error,
   currentParams,
+  justLoaded,
   getCurrentFrame
 } = useBeliefNetworkView();
 
 const showParams = ref(false);
+const showBanner = ref(false);
+
+// justLoadedが変化したらバナーを表示して3秒後に非表示
+watch(justLoaded, (newValue) => {
+  if (newValue) {
+    showBanner.value = true;
+    setTimeout(() => {
+      showBanner.value = false;
+      justLoaded.value = false;
+    }, 3000);
+  }
+});
 
 // currentStepが変わると自動的に再計算される
 const currentFrameUrl = computed(() => {
@@ -48,6 +61,14 @@ const toggleParams = () => {
         alt="Belief Network Graph"
         class="network-image"
       />
+
+      <!-- ロード完了バナー -->
+      <transition name="banner">
+        <div v-if="showBanner" class="load-banner">
+          <p>✓ Simulation loaded successfully</p>
+        </div>
+      </transition>
+
       <div class="step-indicator">
         {{ stepDisplay }}
       </div>
@@ -72,7 +93,7 @@ const toggleParams = () => {
           <span class="param-value">{{ currentParams.country }}</span>
         </div>
         <div class="param-item">
-          <span class="param-label">Scenario:</span>
+          <span class="param-label">Conspiracy:</span>
           <span class="param-value">{{ currentParams.scenario }}</span>
         </div>
         <div class="param-item">
@@ -249,5 +270,41 @@ const toggleParams = () => {
 .param-value {
   font-weight: 600;
   color: #fff;
+}
+
+.load-banner {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(34, 197, 94, 0.95);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.load-banner p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.banner-enter-active, .banner-leave-active {
+  transition: all 0.3s ease;
+}
+
+.banner-enter-from {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-20px);
+}
+
+.banner-leave-to {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-20px);
 }
 </style>

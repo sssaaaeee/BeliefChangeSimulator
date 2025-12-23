@@ -13,6 +13,7 @@ const stateCounts = ref(null); // 各状態のノード数
 const loading = ref(false); // ローディング状態(フラグ)
 const error = ref(null);  // エラーメッセージ
 const currentParams = ref(null); // 現在表示中のシミュレーションのパラメータスナップショット
+const justLoaded = ref(false); // シミュレーションがロードされたばかりかのフラグ
 let isMounted = false; // onMountedを一度だけ実行するフラグ
 
 const fetchSimulation = async () => { // シミュレーションを再実行
@@ -64,6 +65,7 @@ const fetchSimulation = async () => { // シミュレーションを再実行
     }
     currentStep.value = 0;
     console.log(`Loaded ${totalSteps.value} frames from JSON`);
+    justLoaded.value = true; // ロード完了フラグを立てる
   } catch (err) {
     console.error("Error fetching simulation JSON:", err);
     error.value = err.message;
@@ -127,6 +129,7 @@ export function useBeliefNetworkView() {
     loading,
     error,
     currentParams,
+    justLoaded,
     getCurrentFrame,
     nextStep,
     prevStep,
