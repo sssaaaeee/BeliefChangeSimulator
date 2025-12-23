@@ -46,8 +46,8 @@ const fetchSimulation = async () => { // シミュレーションを再実行
 
   try {
     const jsonPath = interventionEnabled.value
-      ? `/json/${countryValue}_scenario${scenarioValue}_beta${interventionStageNum}_exposure_deg${degreeValue}.json`
-      : `/json/${countryValue}_scenario${scenarioValue}_base.json`;
+      ? `/metadata/${countryValue}_scenario${scenarioValue}_beta${interventionStageNum}_exposure_deg${degreeValue}.json`
+      : `/metadata/${countryValue}_scenario${scenarioValue}_base.json`;
     console.log(`Fetching JSON from: ${jsonPath}`);
     const response = await fetch(jsonPath);
 
@@ -77,7 +77,7 @@ const fetchSimulation = async () => { // シミュレーションを再実行
 const getCurrentFrame = () => { // 現在のステップの画像URLを取得
   if (frames.value.length > 0 && currentStep.value < frames.value.length) {
     console.log(`Getting frame for step ${currentStep.value}`);
-    return `data:image/png;base64,${frames.value[currentStep.value].image}`;
+    return `/webp/${currentParams.value.country}_scenario${currentParams.value.scenario}_${currentParams.value.interventionEnabled ? `beta${interventionStageNum}_exposure_deg${currentParams.value.degree}` : "base"}/${frames.value[currentStep.value].image_path}`;
   }
   return null;
 };
