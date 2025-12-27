@@ -1,0 +1,1016 @@
+{
+  "success": true,
+  "frames": [
+    {
+      "step": 0,
+      "state_counts": {
+        "Unrecognized": 13565,
+        "Recognized": 0,
+        "Belief": 0,
+        "Action": 13
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0000.webp"
+    },
+    {
+      "step": 1,
+      "state_counts": {
+        "Unrecognized": 13556,
+        "Recognized": 9,
+        "Belief": 0,
+        "Action": 13
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0001.webp"
+    },
+    {
+      "step": 2,
+      "state_counts": {
+        "Unrecognized": 13552,
+        "Recognized": 13,
+        "Belief": 0,
+        "Action": 13
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0002.webp"
+    },
+    {
+      "step": 3,
+      "state_counts": {
+        "Unrecognized": 13543,
+        "Recognized": 20,
+        "Belief": 2,
+        "Action": 13
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0003.webp"
+    },
+    {
+      "step": 4,
+      "state_counts": {
+        "Unrecognized": 13540,
+        "Recognized": 22,
+        "Belief": 3,
+        "Action": 13
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0004.webp"
+    },
+    {
+      "step": 5,
+      "state_counts": {
+        "Unrecognized": 13537,
+        "Recognized": 25,
+        "Belief": 3,
+        "Action": 13
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0005.webp"
+    },
+    {
+      "step": 6,
+      "state_counts": {
+        "Unrecognized": 13533,
+        "Recognized": 27,
+        "Belief": 5,
+        "Action": 13
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0006.webp"
+    },
+    {
+      "step": 7,
+      "state_counts": {
+        "Unrecognized": 13527,
+        "Recognized": 31,
+        "Belief": 6,
+        "Action": 14
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0007.webp"
+    },
+    {
+      "step": 8,
+      "state_counts": {
+        "Unrecognized": 13520,
+        "Recognized": 37,
+        "Belief": 6,
+        "Action": 15
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0008.webp"
+    },
+    {
+      "step": 9,
+      "state_counts": {
+        "Unrecognized": 13519,
+        "Recognized": 37,
+        "Belief": 7,
+        "Action": 15
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0009.webp"
+    },
+    {
+      "step": 10,
+      "state_counts": {
+        "Unrecognized": 13516,
+        "Recognized": 39,
+        "Belief": 7,
+        "Action": 16
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0010.webp"
+    },
+    {
+      "step": 11,
+      "state_counts": {
+        "Unrecognized": 13515,
+        "Recognized": 39,
+        "Belief": 8,
+        "Action": 16
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0011.webp"
+    },
+    {
+      "step": 12,
+      "state_counts": {
+        "Unrecognized": 13512,
+        "Recognized": 38,
+        "Belief": 12,
+        "Action": 16
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0012.webp"
+    },
+    {
+      "step": 13,
+      "state_counts": {
+        "Unrecognized": 13510,
+        "Recognized": 38,
+        "Belief": 11,
+        "Action": 19
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0013.webp"
+    },
+    {
+      "step": 14,
+      "state_counts": {
+        "Unrecognized": 13505,
+        "Recognized": 42,
+        "Belief": 11,
+        "Action": 20
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0014.webp"
+    },
+    {
+      "step": 15,
+      "state_counts": {
+        "Unrecognized": 13500,
+        "Recognized": 47,
+        "Belief": 10,
+        "Action": 21
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0015.webp"
+    },
+    {
+      "step": 16,
+      "state_counts": {
+        "Unrecognized": 13499,
+        "Recognized": 45,
+        "Belief": 13,
+        "Action": 21
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0016.webp"
+    },
+    {
+      "step": 17,
+      "state_counts": {
+        "Unrecognized": 13497,
+        "Recognized": 47,
+        "Belief": 12,
+        "Action": 22
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0017.webp"
+    },
+    {
+      "step": 18,
+      "state_counts": {
+        "Unrecognized": 13496,
+        "Recognized": 46,
+        "Belief": 12,
+        "Action": 24
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0018.webp"
+    },
+    {
+      "step": 19,
+      "state_counts": {
+        "Unrecognized": 13494,
+        "Recognized": 47,
+        "Belief": 10,
+        "Action": 27
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0019.webp"
+    },
+    {
+      "step": 20,
+      "state_counts": {
+        "Unrecognized": 13492,
+        "Recognized": 46,
+        "Belief": 12,
+        "Action": 28
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0020.webp"
+    },
+    {
+      "step": 21,
+      "state_counts": {
+        "Unrecognized": 13488,
+        "Recognized": 49,
+        "Belief": 12,
+        "Action": 29
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0021.webp"
+    },
+    {
+      "step": 22,
+      "state_counts": {
+        "Unrecognized": 13485,
+        "Recognized": 49,
+        "Belief": 13,
+        "Action": 31
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0022.webp"
+    },
+    {
+      "step": 23,
+      "state_counts": {
+        "Unrecognized": 13480,
+        "Recognized": 52,
+        "Belief": 12,
+        "Action": 34
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0023.webp"
+    },
+    {
+      "step": 24,
+      "state_counts": {
+        "Unrecognized": 13475,
+        "Recognized": 49,
+        "Belief": 19,
+        "Action": 35
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0024.webp"
+    },
+    {
+      "step": 25,
+      "state_counts": {
+        "Unrecognized": 13474,
+        "Recognized": 49,
+        "Belief": 18,
+        "Action": 37
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0025.webp"
+    },
+    {
+      "step": 26,
+      "state_counts": {
+        "Unrecognized": 13470,
+        "Recognized": 53,
+        "Belief": 17,
+        "Action": 38
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0026.webp"
+    },
+    {
+      "step": 27,
+      "state_counts": {
+        "Unrecognized": 13465,
+        "Recognized": 54,
+        "Belief": 20,
+        "Action": 39
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0027.webp"
+    },
+    {
+      "step": 28,
+      "state_counts": {
+        "Unrecognized": 13462,
+        "Recognized": 56,
+        "Belief": 19,
+        "Action": 41
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0028.webp"
+    },
+    {
+      "step": 29,
+      "state_counts": {
+        "Unrecognized": 13460,
+        "Recognized": 54,
+        "Belief": 20,
+        "Action": 44
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0029.webp"
+    },
+    {
+      "step": 30,
+      "state_counts": {
+        "Unrecognized": 13458,
+        "Recognized": 53,
+        "Belief": 21,
+        "Action": 46
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0030.webp"
+    },
+    {
+      "step": 31,
+      "state_counts": {
+        "Unrecognized": 13456,
+        "Recognized": 55,
+        "Belief": 19,
+        "Action": 48
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0031.webp"
+    },
+    {
+      "step": 32,
+      "state_counts": {
+        "Unrecognized": 13451,
+        "Recognized": 56,
+        "Belief": 22,
+        "Action": 49
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0032.webp"
+    },
+    {
+      "step": 33,
+      "state_counts": {
+        "Unrecognized": 13446,
+        "Recognized": 59,
+        "Belief": 22,
+        "Action": 51
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0033.webp"
+    },
+    {
+      "step": 34,
+      "state_counts": {
+        "Unrecognized": 13442,
+        "Recognized": 60,
+        "Belief": 24,
+        "Action": 52
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0034.webp"
+    },
+    {
+      "step": 35,
+      "state_counts": {
+        "Unrecognized": 13439,
+        "Recognized": 60,
+        "Belief": 27,
+        "Action": 52
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0035.webp"
+    },
+    {
+      "step": 36,
+      "state_counts": {
+        "Unrecognized": 13435,
+        "Recognized": 62,
+        "Belief": 27,
+        "Action": 54
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0036.webp"
+    },
+    {
+      "step": 37,
+      "state_counts": {
+        "Unrecognized": 13431,
+        "Recognized": 65,
+        "Belief": 26,
+        "Action": 56
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0037.webp"
+    },
+    {
+      "step": 38,
+      "state_counts": {
+        "Unrecognized": 13428,
+        "Recognized": 64,
+        "Belief": 27,
+        "Action": 59
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0038.webp"
+    },
+    {
+      "step": 39,
+      "state_counts": {
+        "Unrecognized": 13416,
+        "Recognized": 74,
+        "Belief": 26,
+        "Action": 62
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0039.webp"
+    },
+    {
+      "step": 40,
+      "state_counts": {
+        "Unrecognized": 13410,
+        "Recognized": 75,
+        "Belief": 29,
+        "Action": 64
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0040.webp"
+    },
+    {
+      "step": 41,
+      "state_counts": {
+        "Unrecognized": 13402,
+        "Recognized": 81,
+        "Belief": 30,
+        "Action": 65
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0041.webp"
+    },
+    {
+      "step": 42,
+      "state_counts": {
+        "Unrecognized": 13396,
+        "Recognized": 81,
+        "Belief": 36,
+        "Action": 65
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0042.webp"
+    },
+    {
+      "step": 43,
+      "state_counts": {
+        "Unrecognized": 13387,
+        "Recognized": 89,
+        "Belief": 31,
+        "Action": 71
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0043.webp"
+    },
+    {
+      "step": 44,
+      "state_counts": {
+        "Unrecognized": 13378,
+        "Recognized": 93,
+        "Belief": 31,
+        "Action": 76
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0044.webp"
+    },
+    {
+      "step": 45,
+      "state_counts": {
+        "Unrecognized": 13362,
+        "Recognized": 108,
+        "Belief": 30,
+        "Action": 78
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0045.webp"
+    },
+    {
+      "step": 46,
+      "state_counts": {
+        "Unrecognized": 13352,
+        "Recognized": 114,
+        "Belief": 33,
+        "Action": 79
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0046.webp"
+    },
+    {
+      "step": 47,
+      "state_counts": {
+        "Unrecognized": 13339,
+        "Recognized": 122,
+        "Belief": 35,
+        "Action": 82
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0047.webp"
+    },
+    {
+      "step": 48,
+      "state_counts": {
+        "Unrecognized": 13332,
+        "Recognized": 123,
+        "Belief": 37,
+        "Action": 86
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0048.webp"
+    },
+    {
+      "step": 49,
+      "state_counts": {
+        "Unrecognized": 13319,
+        "Recognized": 127,
+        "Belief": 41,
+        "Action": 91
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0049.webp"
+    },
+    {
+      "step": 50,
+      "state_counts": {
+        "Unrecognized": 13313,
+        "Recognized": 128,
+        "Belief": 45,
+        "Action": 92
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0050.webp"
+    },
+    {
+      "step": 51,
+      "state_counts": {
+        "Unrecognized": 13301,
+        "Recognized": 135,
+        "Belief": 50,
+        "Action": 92
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0051.webp"
+    },
+    {
+      "step": 52,
+      "state_counts": {
+        "Unrecognized": 13293,
+        "Recognized": 139,
+        "Belief": 47,
+        "Action": 99
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0052.webp"
+    },
+    {
+      "step": 53,
+      "state_counts": {
+        "Unrecognized": 13282,
+        "Recognized": 145,
+        "Belief": 49,
+        "Action": 102
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0053.webp"
+    },
+    {
+      "step": 54,
+      "state_counts": {
+        "Unrecognized": 13271,
+        "Recognized": 151,
+        "Belief": 51,
+        "Action": 105
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0054.webp"
+    },
+    {
+      "step": 55,
+      "state_counts": {
+        "Unrecognized": 13251,
+        "Recognized": 167,
+        "Belief": 51,
+        "Action": 109
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0055.webp"
+    },
+    {
+      "step": 56,
+      "state_counts": {
+        "Unrecognized": 13240,
+        "Recognized": 173,
+        "Belief": 53,
+        "Action": 112
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0056.webp"
+    },
+    {
+      "step": 57,
+      "state_counts": {
+        "Unrecognized": 13226,
+        "Recognized": 179,
+        "Belief": 58,
+        "Action": 115
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0057.webp"
+    },
+    {
+      "step": 58,
+      "state_counts": {
+        "Unrecognized": 13208,
+        "Recognized": 191,
+        "Belief": 57,
+        "Action": 122
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0058.webp"
+    },
+    {
+      "step": 59,
+      "state_counts": {
+        "Unrecognized": 13193,
+        "Recognized": 198,
+        "Belief": 63,
+        "Action": 124
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0059.webp"
+    },
+    {
+      "step": 60,
+      "state_counts": {
+        "Unrecognized": 13177,
+        "Recognized": 205,
+        "Belief": 68,
+        "Action": 128
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0060.webp"
+    },
+    {
+      "step": 61,
+      "state_counts": {
+        "Unrecognized": 13168,
+        "Recognized": 205,
+        "Belief": 75,
+        "Action": 130
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0061.webp"
+    },
+    {
+      "step": 62,
+      "state_counts": {
+        "Unrecognized": 13157,
+        "Recognized": 212,
+        "Belief": 73,
+        "Action": 136
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0062.webp"
+    },
+    {
+      "step": 63,
+      "state_counts": {
+        "Unrecognized": 13139,
+        "Recognized": 222,
+        "Belief": 75,
+        "Action": 142
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0063.webp"
+    },
+    {
+      "step": 64,
+      "state_counts": {
+        "Unrecognized": 13125,
+        "Recognized": 228,
+        "Belief": 77,
+        "Action": 148
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0064.webp"
+    },
+    {
+      "step": 65,
+      "state_counts": {
+        "Unrecognized": 13109,
+        "Recognized": 234,
+        "Belief": 85,
+        "Action": 150
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0065.webp"
+    },
+    {
+      "step": 66,
+      "state_counts": {
+        "Unrecognized": 13089,
+        "Recognized": 244,
+        "Belief": 84,
+        "Action": 161
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0066.webp"
+    },
+    {
+      "step": 67,
+      "state_counts": {
+        "Unrecognized": 13069,
+        "Recognized": 256,
+        "Belief": 87,
+        "Action": 166
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0067.webp"
+    },
+    {
+      "step": 68,
+      "state_counts": {
+        "Unrecognized": 13057,
+        "Recognized": 257,
+        "Belief": 88,
+        "Action": 176
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0068.webp"
+    },
+    {
+      "step": 69,
+      "state_counts": {
+        "Unrecognized": 13032,
+        "Recognized": 271,
+        "Belief": 91,
+        "Action": 184
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0069.webp"
+    },
+    {
+      "step": 70,
+      "state_counts": {
+        "Unrecognized": 13009,
+        "Recognized": 279,
+        "Belief": 96,
+        "Action": 194
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0070.webp"
+    },
+    {
+      "step": 71,
+      "state_counts": {
+        "Unrecognized": 12989,
+        "Recognized": 291,
+        "Belief": 98,
+        "Action": 200
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0071.webp"
+    },
+    {
+      "step": 72,
+      "state_counts": {
+        "Unrecognized": 12965,
+        "Recognized": 304,
+        "Belief": 97,
+        "Action": 212
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0072.webp"
+    },
+    {
+      "step": 73,
+      "state_counts": {
+        "Unrecognized": 12932,
+        "Recognized": 327,
+        "Belief": 99,
+        "Action": 220
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0073.webp"
+    },
+    {
+      "step": 74,
+      "state_counts": {
+        "Unrecognized": 12900,
+        "Recognized": 342,
+        "Belief": 106,
+        "Action": 230
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0074.webp"
+    },
+    {
+      "step": 75,
+      "state_counts": {
+        "Unrecognized": 12871,
+        "Recognized": 345,
+        "Belief": 123,
+        "Action": 239
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0075.webp"
+    },
+    {
+      "step": 76,
+      "state_counts": {
+        "Unrecognized": 12837,
+        "Recognized": 361,
+        "Belief": 127,
+        "Action": 253
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0076.webp"
+    },
+    {
+      "step": 77,
+      "state_counts": {
+        "Unrecognized": 12806,
+        "Recognized": 383,
+        "Belief": 129,
+        "Action": 260
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0077.webp"
+    },
+    {
+      "step": 78,
+      "state_counts": {
+        "Unrecognized": 12766,
+        "Recognized": 409,
+        "Belief": 132,
+        "Action": 271
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0078.webp"
+    },
+    {
+      "step": 79,
+      "state_counts": {
+        "Unrecognized": 12716,
+        "Recognized": 440,
+        "Belief": 142,
+        "Action": 280
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0079.webp"
+    },
+    {
+      "step": 80,
+      "state_counts": {
+        "Unrecognized": 12680,
+        "Recognized": 453,
+        "Belief": 155,
+        "Action": 290
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0080.webp"
+    },
+    {
+      "step": 81,
+      "state_counts": {
+        "Unrecognized": 12643,
+        "Recognized": 476,
+        "Belief": 157,
+        "Action": 302
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0081.webp"
+    },
+    {
+      "step": 82,
+      "state_counts": {
+        "Unrecognized": 12601,
+        "Recognized": 499,
+        "Belief": 159,
+        "Action": 319
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0082.webp"
+    },
+    {
+      "step": 83,
+      "state_counts": {
+        "Unrecognized": 12559,
+        "Recognized": 520,
+        "Belief": 164,
+        "Action": 335
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0083.webp"
+    },
+    {
+      "step": 84,
+      "state_counts": {
+        "Unrecognized": 12527,
+        "Recognized": 526,
+        "Belief": 180,
+        "Action": 345
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0084.webp"
+    },
+    {
+      "step": 85,
+      "state_counts": {
+        "Unrecognized": 12488,
+        "Recognized": 548,
+        "Belief": 179,
+        "Action": 363
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0085.webp"
+    },
+    {
+      "step": 86,
+      "state_counts": {
+        "Unrecognized": 12435,
+        "Recognized": 579,
+        "Belief": 182,
+        "Action": 382
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0086.webp"
+    },
+    {
+      "step": 87,
+      "state_counts": {
+        "Unrecognized": 12393,
+        "Recognized": 594,
+        "Belief": 200,
+        "Action": 391
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0087.webp"
+    },
+    {
+      "step": 88,
+      "state_counts": {
+        "Unrecognized": 12345,
+        "Recognized": 615,
+        "Belief": 214,
+        "Action": 404
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0088.webp"
+    },
+    {
+      "step": 89,
+      "state_counts": {
+        "Unrecognized": 12293,
+        "Recognized": 645,
+        "Belief": 226,
+        "Action": 414
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0089.webp"
+    },
+    {
+      "step": 90,
+      "state_counts": {
+        "Unrecognized": 12235,
+        "Recognized": 681,
+        "Belief": 228,
+        "Action": 434
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0090.webp"
+    },
+    {
+      "step": 91,
+      "state_counts": {
+        "Unrecognized": 12188,
+        "Recognized": 702,
+        "Belief": 230,
+        "Action": 458
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0091.webp"
+    },
+    {
+      "step": 92,
+      "state_counts": {
+        "Unrecognized": 12136,
+        "Recognized": 720,
+        "Belief": 237,
+        "Action": 485
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0092.webp"
+    },
+    {
+      "step": 93,
+      "state_counts": {
+        "Unrecognized": 12079,
+        "Recognized": 739,
+        "Belief": 261,
+        "Action": 499
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0093.webp"
+    },
+    {
+      "step": 94,
+      "state_counts": {
+        "Unrecognized": 12016,
+        "Recognized": 751,
+        "Belief": 294,
+        "Action": 517
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0094.webp"
+    },
+    {
+      "step": 95,
+      "state_counts": {
+        "Unrecognized": 11944,
+        "Recognized": 790,
+        "Belief": 300,
+        "Action": 544
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0095.webp"
+    },
+    {
+      "step": 96,
+      "state_counts": {
+        "Unrecognized": 11868,
+        "Recognized": 827,
+        "Belief": 312,
+        "Action": 571
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0096.webp"
+    },
+    {
+      "step": 97,
+      "state_counts": {
+        "Unrecognized": 11797,
+        "Recognized": 856,
+        "Belief": 326,
+        "Action": 599
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0097.webp"
+    },
+    {
+      "step": 98,
+      "state_counts": {
+        "Unrecognized": 11703,
+        "Recognized": 908,
+        "Belief": 347,
+        "Action": 620
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0098.webp"
+    },
+    {
+      "step": 99,
+      "state_counts": {
+        "Unrecognized": 11614,
+        "Recognized": 955,
+        "Belief": 361,
+        "Action": 648
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0099.webp"
+    },
+    {
+      "step": 100,
+      "state_counts": {
+        "Unrecognized": 11542,
+        "Recognized": 984,
+        "Belief": 371,
+        "Action": 681
+      },
+      "image_path": "US_scenario6_beta3_exposure_deg0.3_step0100.webp"
+    }
+  ],
+  "total_steps": 101
+}
