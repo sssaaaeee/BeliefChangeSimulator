@@ -2,24 +2,22 @@
 
 🌐 **Live Demo:** https://beliefchangesimulator.pages.dev/
 
-This template should help get you started developing with Vue 3 in Vite.
+An interactive web application that simulates belief changes in social networks. Explore how conspiracy theory beliefs spread and change through exposure and social influence across different scenarios in Japan and the United States.
 
-## Recommended IDE Setup
+## Features
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **Multiple Scenarios**: Choose from 11 different conspiracy theory scenarios
+- **Country Comparison**: Compare belief dynamics between Japan (JP) and the United States (US)
+- **Intervention Simulation**: Test the effects of interventions at different stages (early/middle/late) with varying degrees of influence
+- **Network Visualization**: Visualize belief changes across social network nodes over time
+- **Interactive Dashboard**: Real-time simulation with customizable parameters
 
-## Recommended Browser Setup
+## Technologies
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
+- **Frontend**: Vue 3 + Vite
+- **Visualization**: D3.js for network graphs
+- **Backend**: Python (simulation engine - not included in deployment)
+- **Deployment**: Cloudflare Pages
 
 ## Project Setup
 
@@ -27,20 +25,30 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Development
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+### Production Build
 
 ```sh
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### Linting
 
 ```sh
 npm run lint
 ```
+
+## Project Structure
+
+- `/src` - Vue.js application source code
+- `/public/metadata` - Simulation metadata and scenario data (JSON files)
+- `/backend` - Python simulation engine (not deployed to web)
+
+## License
+
+This project is for research and educational purposes.
