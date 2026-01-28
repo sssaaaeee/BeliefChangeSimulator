@@ -45,9 +45,11 @@ const fetchSimulation = async () => { // シミュレーションを再実行
   };
 
   try {
-    const jsonPath = interventionEnabled.value
-      ? `https://pub-8c1b4e93e6664818a4dad17aae9fa53b.r2.dev/metadata/${countryValue}_scenario${scenarioValue}_beta${interventionStageNum}_exposure_deg${degreeValue}.json`
-      : `https://pub-8c1b4e93e6664818a4dad17aae9fa53b.r2.dev/metadata/${countryValue}_scenario${scenarioValue}_base.json`;
+    const r2BaseUrl = import.meta.env.VITE_R2_BASE_URL || '';
+    const metadataPath = interventionEnabled.value
+      ? `metadata/${countryValue}_scenario${scenarioValue}_beta${interventionStageNum}_exposure_deg${degreeValue}.json`
+      : `metadata/${countryValue}_scenario${scenarioValue}_base.json`;
+    const jsonPath = r2BaseUrl ? `${r2BaseUrl}/${metadataPath}` : `/${metadataPath}`;
     console.log(`Fetching JSON from: ${jsonPath}`);
     const response = await fetch(jsonPath);
 
@@ -89,7 +91,9 @@ const getCurrentFrame = () => { // 現在のステップの画像URLを取得
       interventionStageNum = 3;
     }
 
-    return `https://pub-8c1b4e93e6664818a4dad17aae9fa53b.r2.dev/images/${countryValue}_scenario${scenarioValue}_${interventionEnabledValue ? `beta${interventionStageNum}_exposure_deg${degreeValue}` : "base"}/${frames.value[currentStep.value].image_path}`;
+    const r2BaseUrl = import.meta.env.VITE_R2_BASE_URL || '';
+    const imagePath = `images/${countryValue}_scenario${scenarioValue}_${interventionEnabledValue ? `beta${interventionStageNum}_exposure_deg${degreeValue}` : "base"}/${frames.value[currentStep.value].image_path}`;
+    return r2BaseUrl ? `${r2BaseUrl}/${imagePath}` : `/${imagePath}`;
   }
   return null;
 };
