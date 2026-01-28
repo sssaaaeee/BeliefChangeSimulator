@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref, watch } from 'vue';
+import { computed, ref, watch, onMounted } from 'vue';
 import { useBeliefNetworkView } from '../useBeliefNetworkView';
 import mixerIcon from '../../../assets/mixer.svg';
 
@@ -12,11 +12,67 @@ const {
   error,
   currentParams,
   justLoaded,
-  getCurrentFrame
+  getCurrentFrame,
+  frames
 } = useBeliefNetworkView();
 
 const showParams = ref(false);
 const showBanner = ref(false);
+
+// 画像プリロード用のキャッシュ
+const imageCache = new Map();
+
+// 画像をプリロードしてデコードする関数（高速化のためデコードまで実行）
+const preloadImage = async (url) => {
+  if (!url || imageCache.has(url)) return;
+  const img = new Image();
+  img.src = url;
+  try {
+    await img.decode(); // デコードまで完了させる
+    imageCache.set(url, img);
+  } catch (err) {
+    console.warn('Failed to preload image:', url);
+  }
+};
+
+// 全フレームをバックグラウンドでプリロード
+const preloadAllFrames = async () => {
+  if (!currentParams.value) return;
+
+  const { country: countryValue, scenario: scenarioValue, interventionEnabled: interventionEnabledValue, interventionStage: stageValue, degree: degreeValue } = currentParams.value;
+
+  let interventionStageNum = 1;
+  if (stageValue === 'Unrecognized') {
+    interventionStageNum = 1;
+  } else if (stageValue === 'Recognized') {
+    interventionStageNum = 2;
+  } else if (stageValue === 'Belief') {
+    interventionStageNum = 3;
+  }
+
+  const r2BaseUrl = import.meta.env.VITE_R2_BASE_URL || '';
+
+  // まず最初の20フレームを優先的にロード
+  const priorityPromises = [];
+  for (let i = 0; i < Math.min(20, frames.value.length); i++) {
+    const imagePath = `images/${countryValue}_scenario${scenarioValue}_${interventionEnabledValue ? `beta${interventionStageNum}_exposure_deg${degreeValue}` : "base"}/${frames.value[i].image_path}`;
+    const url = r2BaseUrl ? `${r2BaseUrl}/${imagePath}` : `/${imagePath}`;
+    priorityPromises.push(preloadImage(url));
+  }
+  await Promise.all(priorityPromises);
+
+  // 残りを並列でバックグラウンドロード（制限付き）
+  const batchSize = 10;
+  for (let i = 20; i < frames.value.length; i += batchSize) {
+    const batch = [];
+    for (let j = i; j < Math.min(i + batchSize, frames.value.length); j++) {
+      const imagePath = `images/${countryValue}_scenario${scenarioValue}_${interventionEnabledValue ? `beta${interventionStageNum}_exposure_deg${degreeValue}` : "base"}/${frames.value[j].image_path}`;
+      const url = r2BaseUrl ? `${r2BaseUrl}/${imagePath}` : `/${imagePath}`;
+      batch.push(preloadImage(url));
+    }
+    await Promise.all(batch);
+  }
+};
 
 // justLoadedが変化したらバナーを表示して3秒後に非表示
 watch(justLoaded, (newValue) => {
@@ -26,6 +82,8 @@ watch(justLoaded, (newValue) => {
       showBanner.value = false;
       justLoaded.value = false;
     }, 3000);
+    // 初期ロード時に全フレームをプリロード開始
+    preloadAllFrames();
   }
 });
 
@@ -60,6 +118,8 @@ const toggleParams = () => {
         :src="currentFrameUrl"
         alt="Belief Network Graph"
         class="network-image"
+        decoding="sync"
+        loading="eager"
       />
 
       <!-- ロード完了バナー -->
