@@ -36,3 +36,5 @@ coverage
 __screenshots__/
 /frontend/public/json_backup_20251223.tar.gz
 
+# Backend (not used for website deployment)
+backend/
