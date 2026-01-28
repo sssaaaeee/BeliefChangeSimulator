@@ -1,4 +1,4 @@
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 // import axios from "axios";
 import { useSimulationParams } from "../simulationSettings/useSimulationParams";
 
@@ -14,7 +14,6 @@ const loading = ref(false); // ローディング状態(フラグ)
 const error = ref(null);  // エラーメッセージ
 const currentParams = ref(null); // 現在表示中のシミュレーションのパラメータスナップショット
 const justLoaded = ref(false); // シミュレーションがロードされたばかりかのフラグ
-let isMounted = false; // onMountedを一度だけ実行するフラグ
 
 const fetchSimulation = async () => { // シミュレーションを再実行
   loading.value = true;
